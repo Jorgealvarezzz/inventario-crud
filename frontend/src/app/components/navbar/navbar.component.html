@@ -1,0 +1,12 @@
+<nav class="navbar">
+  <div class="marca">AutoPartes MX</div>
+  <ul class="links">
+    <li><a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">Inicio</a></li>
+    <li><a routerLink="/productos" routerLinkActive="activo">Productos</a></li>
+    <li><a routerLink="/empleados" routerLinkActive="activo">Empleados</a></li>
+    <li><a routerLink="/clientes" routerLinkActive="activo">Clientes</a></li>
+    <li><a routerLink="/servicios" routerLinkActive="activo">Servicios</a></li>
+    <li><a routerLink="/ordenes" routerLinkActive="activo">Ordenes</a></li>
+  </ul>
+  <div class="carrito">Carrito: {{ totalCarrito }}</div>
+</nav>

@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "strict": true,
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "target": "ES2022",
+    "module": "ES2022",
+    "useDefineForClassFields": false,
+    "lib": ["ES2022", "dom"]
+  }
+}

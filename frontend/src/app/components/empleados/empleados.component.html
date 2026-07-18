@@ -1,0 +1,46 @@
+<div class="pagina">
+  <h1>Empleados</h1>
+
+  <div class="tarjeta-form">
+    <h2>{{ editandoId ? 'Editar empleado' : 'Nuevo empleado' }}</h2>
+    <div class="campos">
+      <label>Nombre
+        <input [(ngModel)]="modelo.nombre" placeholder="Nombre completo">
+      </label>
+      <label>Rol
+        <select [(ngModel)]="modelo.rol">
+          <option *ngFor="let r of roles" [value]="r">{{ r }}</option>
+        </select>
+      </label>
+      <label>Telefono
+        <input [(ngModel)]="modelo.telefono" placeholder="10 digitos">
+      </label>
+      <label class="check">
+        <input type="checkbox" [(ngModel)]="modelo.activo"> Activo
+      </label>
+    </div>
+    <div class="acciones">
+      <button class="btn primario" (click)="guardar()">{{ editandoId ? 'Actualizar' : 'Guardar' }}</button>
+      <button class="btn gris" *ngIf="editandoId" (click)="cancelar()">Cancelar</button>
+    </div>
+  </div>
+
+  <table class="tabla">
+    <thead>
+      <tr><th>Nombre</th><th>Rol</th><th>Telefono</th><th>Activo</th><th>Acciones</th></tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of empleados">
+        <td>{{ e.nombre }}</td>
+        <td><span class="chip">{{ e.rol }}</span></td>
+        <td>{{ e.telefono }}</td>
+        <td>{{ e.activo ? 'Si' : 'No' }}</td>
+        <td class="td-acciones">
+          <button class="btn chico azul" (click)="editar(e)">Editar</button>
+          <button class="btn chico rojo" (click)="eliminar(e.id!)">Eliminar</button>
+        </td>
+      </tr>
+      <tr *ngIf="empleados.length === 0"><td colspan="5" class="vacio">Sin empleados</td></tr>
+    </tbody>
+  </table>
+</div>

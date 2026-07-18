@@ -1,0 +1,34 @@
+<div class="pagina">
+  <h1>Clientes</h1>
+
+  <div class="tarjeta-form">
+    <h2>{{ editandoId ? 'Editar cliente' : 'Nuevo cliente' }}</h2>
+    <div class="campos">
+      <label>Nombre <input [(ngModel)]="modelo.nombre" placeholder="Nombre"></label>
+      <label>Telefono <input [(ngModel)]="modelo.telefono" placeholder="Telefono"></label>
+      <label>Correo <input [(ngModel)]="modelo.correo" placeholder="correo@ejemplo.com"></label>
+      <label>Direccion <input [(ngModel)]="modelo.direccion" placeholder="Direccion"></label>
+    </div>
+    <div class="acciones">
+      <button class="btn primario" (click)="guardar()">{{ editandoId ? 'Actualizar' : 'Guardar' }}</button>
+      <button class="btn gris" *ngIf="editandoId" (click)="cancelar()">Cancelar</button>
+    </div>
+  </div>
+
+  <table class="tabla">
+    <thead><tr><th>Nombre</th><th>Telefono</th><th>Correo</th><th>Direccion</th><th>Acciones</th></tr></thead>
+    <tbody>
+      <tr *ngFor="let c of clientes">
+        <td>{{ c.nombre }}</td>
+        <td>{{ c.telefono }}</td>
+        <td>{{ c.correo }}</td>
+        <td>{{ c.direccion }}</td>
+        <td class="td-acciones">
+          <button class="btn chico azul" (click)="editar(c)">Editar</button>
+          <button class="btn chico rojo" (click)="eliminar(c.id!)">Eliminar</button>
+        </td>
+      </tr>
+      <tr *ngIf="clientes.length === 0"><td colspan="5" class="vacio">Sin clientes</td></tr>
+    </tbody>
+  </table>
+</div>

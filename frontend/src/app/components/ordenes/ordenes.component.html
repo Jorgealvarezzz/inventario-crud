@@ -1,0 +1,62 @@
+<div class="pagina">
+  <h1>Ordenes de venta</h1>
+
+  <div class="tarjeta-form">
+    <h2>{{ editandoId ? 'Editar orden' : 'Nueva orden' }}</h2>
+    <div class="campos">
+      <label>Cliente
+        <select [(ngModel)]="modelo.cliente">
+          <option [ngValue]="0" disabled>Selecciona...</option>
+          <option *ngFor="let c of clientes" [ngValue]="c.id">{{ c.nombre }}</option>
+        </select>
+      </label>
+      <label>Empleado
+        <select [(ngModel)]="modelo.empleado">
+          <option [ngValue]="null">Sin asignar</option>
+          <option *ngFor="let e of empleados" [ngValue]="e.id">{{ e.nombre }}</option>
+        </select>
+      </label>
+      <label>Producto
+        <select [(ngModel)]="modelo.producto">
+          <option [ngValue]="0" disabled>Selecciona...</option>
+          <option *ngFor="let p of productos" [ngValue]="p.id">{{ p.nombre }}</option>
+        </select>
+      </label>
+      <label>Servicio (opcional)
+        <select [(ngModel)]="modelo.servicio">
+          <option [ngValue]="null">Ninguno</option>
+          <option *ngFor="let s of servicios" [ngValue]="s.id">{{ s.nombre }}</option>
+        </select>
+      </label>
+      <label>Cantidad <input type="number" [(ngModel)]="modelo.cantidad" min="1"></label>
+      <label>Estado
+        <select [(ngModel)]="modelo.estado">
+          <option *ngFor="let es of estados" [value]="es">{{ es }}</option>
+        </select>
+      </label>
+    </div>
+    <div class="acciones">
+      <button class="btn primario" (click)="guardar()">{{ editandoId ? 'Actualizar' : 'Guardar' }}</button>
+      <button class="btn gris" *ngIf="editandoId" (click)="cancelar()">Cancelar</button>
+    </div>
+  </div>
+
+  <table class="tabla">
+    <thead><tr><th>#</th><th>Cliente</th><th>Empleado</th><th>Producto</th><th>Cant.</th><th>Estado</th><th>Acciones</th></tr></thead>
+    <tbody>
+      <tr *ngFor="let o of ordenes">
+        <td>{{ o.id }}</td>
+        <td>{{ o.cliente_nombre }}</td>
+        <td>{{ o.empleado_nombre }}</td>
+        <td>{{ o.producto_nombre }}</td>
+        <td>{{ o.cantidad }}</td>
+        <td><span class="estado" [class.completada]="o.estado==='completada'" [class.cancelada]="o.estado==='cancelada'">{{ o.estado }}</span></td>
+        <td class="td-acciones">
+          <button class="btn chico azul" (click)="editar(o)">Editar</button>
+          <button class="btn chico rojo" (click)="eliminar(o.id!)">Eliminar</button>
+        </td>
+      </tr>
+      <tr *ngIf="ordenes.length === 0"><td colspan="7" class="vacio">Sin ordenes</td></tr>
+    </tbody>
+  </table>
+</div>

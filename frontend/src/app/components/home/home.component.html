@@ -1,0 +1,23 @@
+<div class="contenedor">
+  <h1>Panel de la tienda</h1>
+  <p class="sub">Sistema de gestion de autopartes e instalaciones</p>
+
+  <div class="tarjetas">
+    <a routerLink="/productos" class="tarjeta">
+      <span class="numero">{{ totProductos }}</span>
+      <span class="etiqueta">Productos</span>
+    </a>
+    <a routerLink="/empleados" class="tarjeta">
+      <span class="numero">{{ totEmpleados }}</span>
+      <span class="etiqueta">Empleados</span>
+    </a>
+    <a routerLink="/clientes" class="tarjeta">
+      <span class="numero">{{ totClientes }}</span>
+      <span class="etiqueta">Clientes</span>
+    </a>
+    <a routerLink="/ordenes" class="tarjeta">
+      <span class="numero">{{ totOrdenes }}</span>
+      <span class="etiqueta">Ordenes</span>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+﻿<div class="container">
+
+  <div class="header">
+    <h1>Inventario de Productos</h1>
+    <button class="btn btn-nuevo" (click)="nuevo()">+ Nuevo producto</button>
+  </div>
+
+  <p class="aviso" *ngIf="cargando">Cargando...</p>
+
+  <!-- Una tarjeta por cada producto -->
+  <div class="grid" *ngIf="!cargando">
+    <div class="card" *ngFor="let p of productos">
+
+      <div class="card-top">
+        <span class="categoria">{{ p.categoria }}</span>
+        <span class="id">#{{ p.id }}</span>
+      </div>
+
+      <h3 class="nombre">{{ p.nombre }}</h3>
+      <p class="desc">{{ p.descripcion }}</p>
+
+      <div class="datos">
+        <span class="precio">{{ p.precio | currency:"MXN":"symbol-narrow" }}</span>
+        <span class="stock">Stock: {{ p.stock }}</span>
+      </div>
+
+      <div class="acciones">
+        <button class="btn btn-editar" (click)="editar(p.id!)">Editar</button>
+        <button class="btn btn-eliminar" (click)="eliminar(p.id!)">Eliminar</button>
+      </div>
+      <button class="btn btn-carrito" (click)="agregarCarrito(p)">Agregar al carrito</button>
+
+    </div>
+  </div>
+
+</div>

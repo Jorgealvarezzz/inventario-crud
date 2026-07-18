@@ -1,0 +1,14 @@
+# Carpetas que NO se suben a GitHub (se generan solas)
+node_modules/
+dist/
+.angular/
+
+# Python / Django
+__pycache__/
+*.pyc
+venv/
+db.sqlite3
+
+# Archivos de ayuda (no forman parte del proyecto)
+commits.sh
+COMO_SUBIR.md

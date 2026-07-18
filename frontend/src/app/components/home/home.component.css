@@ -1,0 +1,19 @@
+.contenedor { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+h1 { color: #1f2937; margin-bottom: 4px; }
+.sub { color: #6b7280; margin-top: 0; margin-bottom: 30px; }
+.tarjetas { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+.tarjeta {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 28px;
+  text-align: center;
+  text-decoration: none;
+  transition: transform .15s, box-shadow .15s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.tarjeta:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,.08); }
+.numero { font-size: 40px; font-weight: 700; color: #f59e0b; }
+.etiqueta { color: #374151; font-size: 16px; }
